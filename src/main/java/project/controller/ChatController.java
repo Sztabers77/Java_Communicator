@@ -1,7 +1,7 @@
-package api.controller;
+package project.controller;
 
 
-import api.model.ChatMessage;
+import project.model.Message;
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.handler.annotation.Payload;
 import org.springframework.messaging.handler.annotation.SendTo;
@@ -9,18 +9,22 @@ import org.springframework.messaging.simp.SimpMessageHeaderAccessor;
 import org.springframework.stereotype.Controller;
 
 @Controller
+
 public class ChatController {
+
+
 
 	@MessageMapping("/chat.register")
 	@SendTo("/topic/public")
-	public ChatMessage register(@Payload ChatMessage chatMessage, SimpMessageHeaderAccessor headerAccessor) {
-		headerAccessor.getSessionAttributes().put("username", chatMessage.getSender());
+	public Message register(@Payload Message chatMessage, SimpMessageHeaderAccessor headerAccessor) {
+		headerAccessor.getSessionAttributes().put("username", chatMessage.getSenderId());
+
 		return chatMessage;
 	}
 
 	@MessageMapping("/chat.send")
 	@SendTo("/topic/public")
-	public ChatMessage sendMessage(@Payload ChatMessage chatMessage) {
+	public Message sendMessage(@Payload Message chatMessage) {
 		return chatMessage;
 	}
 
