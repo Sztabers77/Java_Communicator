@@ -10,14 +10,13 @@ import project.model.Message;
 public class SendMessageRequest {
 
     private Long id;
-    private Long senderId;
-    private Long receiverId;
+    private String senderId;
     private String content;
     private Long created_at;
 
 
 
     Message toDomain(){
-        return Message.of(id, senderId, receiverId, created_at,content);
+        return Message.of(id, senderId, created_at,content);
     }
 }

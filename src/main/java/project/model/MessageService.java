@@ -29,21 +29,19 @@ public class    MessageService {
         Date date = new Date();
         Long time = date.getTime();
 
-        Long senderId = message.getSenderId();
-        User found = User.of(senderId,"name", "email", "1234", new ArrayList<>());
 
-        jdbcTemplate.update("INSERT INTO messages (receiver_id, created_at, content,  sender_id) " +
-                "values ('" + message.getReceiverId() + "','" + time + "','" + message.getContent() + "','" + found.getId() + "')");
 
-        simpMessagingTemplate.convertAndSend("/topic/messages/" + message.getReceiverId(), message);
+        jdbcTemplate.update("INSERT INTO messages (sender, created_at, content) " +
+                "values ('" + message.getSender() + "','" + time + "','" + message.getContent() + "');");
 
-        return "message sended";
+
+
+        return "message sent";
 
     }
 
-    public List<Map<String,Object>> findAllMessages(Long sender, Long receiver){
-        return jdbcTemplate.queryForList("select * from messages where (sender_id='" + sender + "' and receiver_id='" + receiver + "') " +
-                "or (receiver_id='" + sender + "' and sender_id='" + receiver + " + ')");
+    public List<Map<String,Object>> findAllMessages(String sender){
+        return jdbcTemplate.queryForList("SELECT * FROM messages WHERE sender_id='" + sender + "')");
     }
 
 
@@ -55,8 +53,8 @@ public class    MessageService {
 
     }
 
-    public String deleteUserMessages(Long id){
-        jdbcTemplate.update("DELETE FROM messages WHERE sender_id = '" + id + "'" );
+    public String deleteUserMessages(String sender){
+        jdbcTemplate.update("DELETE FROM messages WHERE sender_id = '" + sender + "'" );
 
         return "messages deleted";
     }

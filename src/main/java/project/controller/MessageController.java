@@ -27,8 +27,8 @@ public class MessageController {
 
 
     @GetMapping(path = "/{from}/{to}")
-    public List<Map<String, Object>> findAllMessages(@PathVariable("from") Long sender, @PathVariable("to") Long receiver) {
-        return messageService.findAllMessages(sender, receiver);
+    public List<Map<String, Object>> findAllMessages(@PathVariable("from") String sender) {
+        return messageService.findAllMessages(sender);
     }
 
     @PostMapping
@@ -41,9 +41,9 @@ public class MessageController {
         return messageService.deleteMessage(id);
     }
 
-    @DeleteMapping(path = "/delete/user/{id}")
-    public String deleteUserMessages(@PathVariable Long id) {
-        return messageService.deleteUserMessages(id);
+    @DeleteMapping(path = "/delete/user/{sender}")
+    public String deleteUserMessages(@PathVariable String sender) {
+        return messageService.deleteUserMessages(sender);
 
     }
 }

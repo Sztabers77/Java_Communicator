@@ -11,16 +11,16 @@ import java.util.stream.Collectors;
 @Data
 @NoArgsConstructor(force = true)
 public class UserDto {
-    private final Long id;
+    private Long id;
 
-    private final String name;
+    private String name;
 
-    private final String email;
+    private String email;
 
-    private final String password;
+    private String password;
 
 
-    private final List<MessageDto> messages;
+    private List<MessageDto> messages;
 
     public UserDto (User user){
         this.id = user.getId();

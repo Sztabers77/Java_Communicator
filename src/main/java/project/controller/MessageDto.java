@@ -8,21 +8,19 @@ import project.model.Message;
 @NoArgsConstructor(force = true)
 public class MessageDto {
 
-    private final Long Id;
-    private final Long senderId;
-    private final Long receiverId;
-    private final String content;
-    private final Long created_at;
+    private Long Id;
+    private String sender;
+    private String content;
+    private Long created_at;
 
 
     public MessageDto (Message message){
         this.Id = message.getId();
-        this.senderId = message.getSenderId();
-        this.receiverId = message.getReceiverId();
+        this.sender = message.getSender();
         this.content = message.getContent();
         this.created_at = message.getCreated_at();
 
     }
 
-    Message toDomain(){return Message.of(Id, senderId, receiverId, created_at, content);}
+    Message toDomain(){return Message.of(Id, sender, created_at, content);}
 }

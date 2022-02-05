@@ -5,15 +5,17 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import project.model.Message;
 import project.model.User;
+
 import javax.persistence.*;
+
 import java.util.ArrayList;
 import java.util.List;
-
+import java.util.Set;
 
 import static javax.persistence.GenerationType.IDENTITY;
 
 @Getter
-@Entity
+@Entity(name = "users")
 @NoArgsConstructor(force = true)
 public class UserEntity {
 
@@ -29,7 +31,7 @@ public class UserEntity {
 
     @OneToMany(targetEntity = MessageEntity.class, fetch = FetchType.LAZY,
            cascade = CascadeType.ALL)
-    @JoinColumn(name = "senderId", referencedColumnName = "id")
+    @JoinColumn(name = "sender", referencedColumnName = "name")
     private List<Message> messages;
 
 

@@ -23,8 +23,8 @@ public class MessageDao implements MessageRepository {
     }
 
     @Override
-    public List<Map<String, Object>> findAllMessages(Long sender, Long receiver) {
-        return service.findAllMessages(sender, receiver);
+    public List<Map<String, Object>> findAllMessages(String sender) {
+        return service.findAllMessages(sender);
     }
 
     @Override
@@ -33,7 +33,7 @@ public class MessageDao implements MessageRepository {
     }
 
     @Override
-    public String deleteUserMessages(Long id) {
-        return service.deleteUserMessages(id);
+    public String deleteUserMessages(String sender) {
+        return service.deleteUserMessages(sender);
     }
 }

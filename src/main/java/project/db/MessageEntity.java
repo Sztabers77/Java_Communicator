@@ -15,7 +15,7 @@ public class MessageEntity {
     @Id
     @GeneratedValue(strategy = IDENTITY)
     private Long id;
-    private Long receiverId;
+    private String sender;
     private Long created_at;
     private String content;
 
@@ -24,7 +24,7 @@ public class MessageEntity {
 
     MessageEntity(Message message){
         this.id = message.getId();
-        this.receiverId = message.getReceiverId();
+        this.sender = message.getSender();
         this.content = message.getContent();
         this.created_at = message.getCreated_at();
     }
