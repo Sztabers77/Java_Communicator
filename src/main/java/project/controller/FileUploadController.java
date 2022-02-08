@@ -1,5 +1,6 @@
 package project.controller;
 
+import project.utils.XmlParser;
 import java.io.File;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -20,6 +21,9 @@ public class FileUploadController {
           dir.mkdirs();
           File tmp = new File(dir, fileName);
           tmp.createNewFile();
+
+          XmlParser xml = new XmlParser();
+          xml.parse();
       } catch (Exception e) {
           return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
       }
