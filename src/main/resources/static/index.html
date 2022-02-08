@@ -50,19 +50,23 @@
 
 		<div class="import-container">
 			<h2>Import XML file</h2>
-			<form:form method="POST" action="/spring-mvc-xml/uploadFile" enctype="multipart/form-data">
-				<table>
-					<tr>
-						<td><form:label path="file">Select a file to upload</form:label></td>
-						<td><input type="file" name="file" /></td>
-					</tr>
-					<tr>
-						<td><input type="submit" value="Submit" /></td>
-					</tr>
-				</table>
-			</form>
+			<input id="fileUpload" type="file" name="fileUpload"/>
+			<button id="upload-button" onclick="uploadFile()">Upload</button>
 		</div>
 	</div>
+	<script>
+		async function uploadFile() {
+			let formData = new FormData();
+			formData.append("file", fileUpload.files[0]);
+
+			let res = await fetch('/upload', {
+				method: "POST",
+				body: formData
+			})
+
+			res.status == 200 && alert("File uploaded to {project-root}/tmp directory!");
+		}
+	</script>
 
 	<script
 		src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.1.4/sockjs.min.js"></script>
