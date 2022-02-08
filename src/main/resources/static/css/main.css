@@ -157,6 +157,15 @@ button.accent {
     position: relative;
 }
 
+.import-container {
+    box-shadow: 0 1px 11px rgba(0, 0, 0, 0.27);
+    max-width: 700px;
+    background-color: #fff;
+    margin: 0 auto;
+    margin-top: 2rem;
+    padding: 2rem;
+}
+
 #chat-page ul {
     list-style-type: none;
     background-color: #FFF;
