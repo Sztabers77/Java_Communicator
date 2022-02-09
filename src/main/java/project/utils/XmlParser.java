@@ -42,8 +42,8 @@ public class XmlParser {
 					String nick = element.getElementsByTagName("nick").item(0).getTextContent();
 					String text = element.getElementsByTagName("text").item(0).getTextContent();
 
-					System.out.println("Nickname" + nick);
-					System.out.println("Text:" + text);
+					System.out.println("Nickname: " + nick);
+					System.out.println("Text: " + text);
 				}
 			}
 
