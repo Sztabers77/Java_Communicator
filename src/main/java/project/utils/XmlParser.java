@@ -15,15 +15,13 @@ import java.io.InputStream;
 
 public class XmlParser {
 
-	private static final String FILENAME = "example_xml/conversation.xml";
-
-	public static void parse() {
+	public static void parse(String fileName) {
 
 		DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
 
 		try {
 			DocumentBuilder db = dbf.newDocumentBuilder();
-			Document doc = db.parse(new File(FILENAME));
+			Document doc = db.parse(new File("tmp/" + fileName));
 
 			doc.getDocumentElement().normalize();
 

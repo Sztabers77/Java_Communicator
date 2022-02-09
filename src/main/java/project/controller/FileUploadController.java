@@ -17,16 +17,18 @@ public class FileUploadController {
       String fileName = file.getOriginalFilename();
 
       try {
-          File dir = new File("tmp/");
-          dir.mkdirs();
-          File tmp = new File(dir, fileName);
-          tmp.createNewFile();
+          File tmp = new File("tmp/");
+          if (!tmp.exists()){
+              tmp.mkdirs();
+          }
+          file.transferTo(new File(tmp.getAbsolutePath(), fileName));
 
           XmlParser xml = new XmlParser();
-          xml.parse();
+          xml.parse(fileName);
       } catch (Exception e) {
           return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
       }
+
       return ResponseEntity.ok("File uplaoded.");
   }
 }
