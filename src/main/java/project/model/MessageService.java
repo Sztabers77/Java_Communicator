@@ -19,8 +19,6 @@ public class    MessageService {
     private final UserRepository userRepository;
 
 
-    @Autowired
-    private SimpMessagingTemplate simpMessagingTemplate;
 
     @Autowired
     JdbcTemplate jdbcTemplate;
