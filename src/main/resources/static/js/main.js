@@ -117,5 +117,20 @@ function getAvatarColor(messageSender) {
     return colors[index];
 }
 
+async function uploadFile() {
+    let formData = new FormData();
+    formData.append("file", fileUpload.files[0]);
+
+
+        let res = await fetch('/upload', {
+            method: "POST",
+            body: formData
+        })
+
+        res.status == 200 && alert("File uploaded to {project-root}/tmp directory!");
+
+
+}
+
 usernameForm.addEventListener('submit', connect, true)
 messageForm.addEventListener('submit', send, true)
