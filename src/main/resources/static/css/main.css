@@ -19,10 +19,9 @@ body {
   /*  background-color: #f4f4f4; */
   height: 100%;
 
-  /* Center and scale the image nicely */
   background-position: center;
-  background-repeat: no-repeat;
   background-size: cover;
+  background-repeat: repeat;
 }
 
 body:before {
@@ -144,6 +143,7 @@ button.accent {
 #chat-page {
   position: relative;
   height: 100%;
+
 }
 
 .chat-container {
@@ -182,12 +182,12 @@ button.accent {
   margin: 0 auto;
   margin-top: 2rem;
   padding: 2rem;
+  display: inline-table;
 
 }
 
-.box {
-  border: black;
-
+.download-box {
+  border: solid;
 }
 
 #chat-page ul {
