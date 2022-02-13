@@ -9,10 +9,11 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
-import static lombok.AccessLevel.PACKAGE;
+
+import static lombok.AccessLevel.PUBLIC;
 
 @Service
-@RequiredArgsConstructor(access = PACKAGE)
+@RequiredArgsConstructor(access = PUBLIC)
 public class UserService {
 
     private final UserRepository repository;

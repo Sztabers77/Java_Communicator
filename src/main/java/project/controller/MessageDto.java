@@ -22,5 +22,5 @@ public class MessageDto {
 
     }
 
-    Message toDomain(){return Message.of(Id, sender, created_at, content);}
+     Message toDomain(){return Message.of(Id, sender, created_at, content);}
 }

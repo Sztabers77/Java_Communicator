@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<conversation>
+	<msg>
+		<nick>Jula</nick>
+		<text>Hej</text>
+	</msg>
+	<msg>
+		<nick>Sebek</nick>
+		<text>Elo</text>
+	</msg>
+	<msg>
+		<nick>Jula</nick>
+		<text>Blik jest spoko!</text>
+	</msg>
+	<msg>
+		<nick>Sebek</nick>
+		<text>Bardzo lubie system blik! :--)</text>
+	</msg>
+</conversation>

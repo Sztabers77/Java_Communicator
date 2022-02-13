@@ -9,11 +9,12 @@ import org.springframework.stereotype.Service;
 
 import java.util.*;
 
-import static lombok.AccessLevel.PACKAGE;
+
+import static lombok.AccessLevel.PUBLIC;
 
 @Service
-@RequiredArgsConstructor(access = PACKAGE)
-public class    MessageService {
+@RequiredArgsConstructor(access = PUBLIC)
+public class  MessageService {
 
     MessageRepository repository;
     private final UserRepository userRepository;
@@ -56,4 +57,6 @@ public class    MessageService {
 
         return "messages deleted";
     }
+
+
 }
